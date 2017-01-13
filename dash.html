@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BrainBlox Monitor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/images.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#dashboard__link").click(function () {
+                $("#dashboard").show();
+                $("#dashboard__link").addclass("active");
+                $("#system-health").hide();
+                $("#system-health").removeclass("active");
+                $("#user-info").hide();
+                $("#user-info").removeclass("active");
+
+            });
+            $("#system-health__link").click(function () {
+                $("#dashboard").hide();
+                $("#system-health").show();
+                $("#user-info").hide();
+                $("#dashboard__link").removeclass("active");
+                $("#system-health").addclass("active");
+                $("#user-info").removeclass("active");
+
+            });
+            $("#user-info__link").click(function () {
+                $("#dashboard").hide();
+                $("#system-health").hide();
+                $("#user-info").show();
+                $("#dashboard__link").removeclass("active");
+                $("#system-health").removeclass("active");
+                $("#user-info").addclass("active");
+
+            });
+        });
+    </script>
+
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="fleft"><img alt="" src="images/imgpsh_fullsize.png" width=50px height=45px/><span class="header__heading">BrainBlox Monitor</span></div>
+        <div class="header__logout fright">
+
+            <button onclick="logout()" class="header__button"><span class="fa fa-sign-out"></span>Logout</button>
+        </div>
+    </div>
+    <div class="aside-layout__wrapper">
+        <div class="aside">
+            <nav class="aside__link clearfix">
+                <a class="active" id="dashboard__link"><span class="fa fa-tachometer"></span>Dashboard</a>
+                <a id="system-health__link"><span class="fa fa-heart"></span>System Health</a>
+                <a id="user-info__link"><span class="fa fa-user"></span>User Info</a>
+            </nav>
+        </div>
+        <div class="layout">
+            <div id="dashboard">
+                <div class="dashboard__content clearfix">
+                    <div class="summary ibox fleft">
+                        <div class="summary__title">
+                            <span class="summary__title__icon fa fa-flag"></span>
+                            <span class="summary__title__text">Modules Summary</span>
+                        </div>
+                        <ul class="summary__content__list">
+                            <li id="demo" class="summary__content__list__item dashboard__module_1"></li>
+                            <li id="demo1" class="summary__content__list__item dashboard__module_2"></li>
+                            <li id="demo2" class="summary__content__list__item dashboard__module_3"></li>
+                            <li id="demo3" class="summary__content__list__item dashboard__module_4"></li>
+                            <li id="demo4" class="summary__content__list__item dashboard__module_5"></li>
+                            <li id="demo5" class="summary__content__list__item dashboard__module_6"></li>
+                            <li id="demo6" class="summary__content__list__item dashboard__module_7"></li>
+                            <li id="demo7" class="summary__content__list__item dashboard__module_8"></li>
+                        </ul>
+                    </div>
+                    <div class="summary fright">
+                        <div class="summary__title">
+                            <span class="summary__title__icon material-icons">person</span>
+                            <span class="summary__title__text">Users Summary</span>
+                        </div>
+                        <ul class="summary__content__list">
+                            <li class="user__summary__content__list__item user__module_1 clearfix">
+                                <div class="user__summary__item__content__text-1">Users Registered</div>
+                                <div id="totaluser" class="user__summary__item__content__text-2 fleft">12</div>
+                                <div class="user__summary__item__icon material-icons fright">person</div>
+                            </li>
+                            <li class="user__summary__content__list__item user__module_2 clearfix">
+                                <div class="user__summary__item__content__text-1">Users Active</div>
+                                <div id="activeuser" class="user__summary__item__content__text-2 fleft">22</div>
+                                <div class="user__summary__item__icon fa fa-eye fright"></div>
+                            </li>
+
+                            <li class="user__summary__content__list__item user__module_3 clearfix">
+                                <div class="user__summary__item__content__text-1">Users Inactive</div>
+                                <div id="inactiveuser" class="user__summary__item__content__text-2 fleft">45s</div>
+                                <div class="user__summary__item__icon fa fa-exclamation-triangle fright"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="system-health" class="system-health">
+
+                <div class="system-health__content">
+                    <div id="add_svg">
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+            <div id="user-info">
+
+                <div class="summary userinfo">
+                    <div class="summary__title">
+                        <span class="summary__title__icon material-icons">person</span>
+                        <span class="summary__title__text">Users Summary</span>
+                    </div>
+                    <ul class="summary__content__list">
+                        <li class="user__summary__content__list__item user__module clearfix">
+                            <div class="user__summary__item__content__text-1">Users Registered</div>
+                            <div id="totalusers" class="user__summary__item__content__text-2 fleft">12</div>
+                            <div class="user__summary__item__icon material-icons fright">person</div>
+                        </li>
+                        <li class="user__summary__content__list__item user__module clearfix">
+                            <div class="user__summary__item__content__text-1">Users Active</div>
+                            <div id="activeusers" class="user__summary__item__content__text-2 fleft">22</div>
+                            <div class="user__summary__item__icon fa fa-eye fright"></div>
+                        </li>
+
+                        <li class="user__summary__content__list__item user__module clearfix">
+                            <div class="user__summary__item__content__text-1">Users Inactive</div>
+                            <div id="inactiveusers" class="user__summary__item__content__text-2 fleft">45s</div>
+                            <div class="user__summary__item__icon fa fa-exclamation-triangle fright"></div>
+                        </li>
+                    </ul>
+                </div>
+                <table class="user-info__table">
+                    <tr class="user-info__heading">
+                        <th class="user-info__heading__column">UserId</th>
+                        <th class="user-info__heading__column">UserDetails</th>
+                        <th class="user-info__heading__column">UserAccountId</th>
+                    </tr>
+                    <tr class="user-info__row">
+                        <td rowspan="4" class="user-info__column-1">cs001 </td>
+                        <td rowspan="4" class="user-info__column-1">
+                            <span class="user-info__column-1__text">Name:</span>
+                            <span class="user-info__column-1__text">Signature:</span>
+                            <span class="user-info__column-1__text">TTB:</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="user-info__column-2">
+                            <div class="accountid__text">xyz@gmail.com
+                                <span class="arrow"></span>
+                                <ul class="accountid__details">
+                                    <li class="accountid__details__item">Snooze:</li>
+                                    <li class="accountid__details__item">Batch Count:</li>
+                                    <li class="accountid__details__item">Swipe:</li>
+                                    <li class="accountid__details__item">App Version:</li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="user-info__column-2">xyz@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td class="user-info__column-2">xyz@gmail.com</td>
+                    </tr>
+                </table>
+                <p id="justdemo">hi</p>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="module.js"></script>
+    </div>
+
+</body>
+
+</html>
